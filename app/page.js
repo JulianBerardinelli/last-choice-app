@@ -1,9 +1,10 @@
 // app/page.js
 /* eslint-disable react/no-unescaped-entities */
 
-import Image from 'next/image';
-import Title from './components/Title.js';
-import Header from './components/Header.js';
+import Title from '../components/Title.js';
+import Header from '../components/Header.js';
+
+import FormComponent from '../components/FormComponent.tsx';
 
 export default function HomePage() {
   return (
@@ -19,6 +20,10 @@ export default function HomePage() {
           </p>
         </div>
       </main>
+      <div className='mt-50 bg-white'>
+          <h1>Formulario</h1>
+          <FormComponent/>
+        </div>
     </>
   );
 }
