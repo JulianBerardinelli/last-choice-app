@@ -6,7 +6,7 @@ import "./globals.css";
 const digitalFont = localFont({
   src: "./fonts/digital-7.ttf",
   variable: "--font-digital",
-  display: "swap", // Esto asegura que se muestre lo antes posible
+  display: "swap",
 });
 
 export const metadata = {

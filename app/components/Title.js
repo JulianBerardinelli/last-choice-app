@@ -1,5 +1,5 @@
-// app/components/Title.js
-'use client'; // Para usar useEffect en el lado del cliente
+
+'use client'; 
 
 import { useEffect } from 'react';
 
@@ -32,9 +32,17 @@ export default function Title() {
   }, []);
 
   return (
-    <h1 id="glitch-text" className="text-8xl font-semibold text-blue-500 uppercase font-custom">
-      <span id="last-text" className="text-blue-500">Last</span>
-      <span id="dynamic-word" className="text-8xl font-custom neon-text">Bet<span className="filler text-blue-500">. . .</span></span>
+    <h1 
+      id="glitch-text" 
+      className="text-7xl sm:text-7xl md:text-8xl lg:text-9xl font-semibold text-blue-500/70 uppercase font-custom"
+    >
+      <span id="last-text" className="text-blue-500/70">Last</span>
+      <span 
+        id="dynamic-word" 
+        className="text-7xl sm:text-7xl md:text-8xl lg:text-9xl font-custom neon-text"
+      >
+        Bet<span className="filler text-blue-500/70">. . .</span>
+      </span>
     </h1>
   );
 }
