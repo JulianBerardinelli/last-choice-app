@@ -1,6 +1,7 @@
 // app/layout.js
 import localFont from "next/font/local";
 import "./globals.css";
+import { FormProvider } from "../context/FormContext";
 
 // Cargar la fuente Digital-7
 const digitalFont = localFont({
@@ -16,13 +17,16 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body
-        className={`${digitalFont.variable} antialiased`}
-      >
-        <div className="absolute inset-0 -z-10 h-full w-full bg-slate-950/85 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_2px,transparent_2px)] bg-[size:14px_24px]"></div>
-        {children}
-      </body>
-    </html>
+    <FormProvider>
+      <html lang="en">
+        <body
+          className={`${digitalFont.variable} antialiased`}
+        >
+          <div className="absolute inset-0 -z-10 h-full w-full bg-slate-950/85 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_2px,transparent_2px)] bg-[size:14px_24px]"></div>
+          {children}
+        </body>
+      </html>
+    </FormProvider>
+
   );
 }

@@ -1,7 +1,6 @@
 // components/ResultComponent.tsx
 import ResultadoProgramacion from './results/ResultadoProgramacion';
 import ResultadoFinanzas from './results/ResultadoFinanzas';
-// Importa otros componentes según las opciones
 
 type Props = {
   opcionElegida: string;

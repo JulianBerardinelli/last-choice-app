@@ -1,10 +1,13 @@
-"use client";  // Asegura que este componente se renderiza en el cliente
+"use client"; 
 
+import { useFormContext } from '../context/FormContext';
 import { useState } from 'react';
-import { useRouter } from 'next/navigation';  // Importa el router de next/navigation
+import { useRouter } from 'next/navigation';  
 
 const FormComponent = () => {
-  const router = useRouter();  // Usa el router de next/navigation
+  const router = useRouter(); 
+  const { setFormData } = useFormContext();
+
   const [form, setForm] = useState({
     nombre: '',
     edad: '',
@@ -39,7 +42,10 @@ const FormComponent = () => {
       faltadoReuniones: form.faltadoReuniones === 'Si' ? true : false,
       aumentoApuesta: form.aumentoApuesta === 'Si' ? true : false,
       recuperarDinero: form.recuperarDinero === 'Si' ? true : false,
+      edad: parseInt(form.edad, 10), // Convertir edad a número
+      dineroApuestaSemana: parseInt(form.dineroApuestaSemana, 10), // Convertir dineroApuestaSemana a número
     };
+
   
     console.log('Datos del formulario antes de enviar:', form);  // Verificación de los datos del formulario
   
@@ -54,7 +60,10 @@ const FormComponent = () => {
   
       if (res.ok) {
         console.log('Formulario enviado correctamente');
-        router.push(`/resultados/page?nombre=${form.nombre}&opcionAprender=${form.opcionAprender}`);  // Redirige usando el router
+    
+        setFormData(formattedForm);
+      // Redirigir a la página de resultados sin parámetros en la URL
+        router.push('/resultados');
       } else {
         const errorData = await res.json();
         console.error('Error al enviar el formulario:', errorData.message);
