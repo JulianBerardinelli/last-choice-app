@@ -43,7 +43,6 @@ const FormComponent = () => {
       aumentoApuesta: form.aumentoApuesta === 'Si' ? true : false,
       recuperarDinero: form.recuperarDinero === 'Si' ? true : false,
       edad: parseInt(form.edad, 10), // Convertir edad a número
-      dineroApuestaSemana: parseInt(form.dineroApuestaSemana, 10), // Convertir dineroApuestaSemana a número
     };
 
   
@@ -190,19 +189,24 @@ const FormComponent = () => {
         </select>
       </div>
 
-            {/* Cantidad de dinero apostado por semana */}
-            <div className="mb-4">
-        <label className="block text-sm font-medium mb-1" htmlFor="dineroApuestaSemana">¿Cuánto dinero apuesta por semana?</label>
-        <input
-          type="number"
+      {/* Cantidad de dinero apostado por semana */}
+      <div className="mb-4">
+        <label className="block text-sm font-medium mb-1" htmlFor="dineroApuestaSemana">¿Cuánto dinero apuesta por semana? ($ Arg)</label>
+        <select
           name="dineroApuestaSemana"
           id="dineroApuestaSemana"
           value={form.dineroApuestaSemana}
           onChange={handleChange}
-          placeholder="Cantidad en pesos"
           className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
           required
-        />
+        >
+          <option value="">Selecciona</option>
+          <option value="$1.000 - $10.000">$1.000 - $10.000</option>
+          <option value="$10.000 - $30.000">$10.000 - $30.000</option>
+          <option value="$30.000 - $60.000">$30.000 - $60.000</option>
+          <option value="$60.000 - $100.000">$60.000 - $100.000</option>
+          <option value="+ $100.000">+ $100.000</option>
+        </select>
       </div>
 
       {/* ¿Aumentó la cantidad apostada en relación con las primeras apuestas? */}

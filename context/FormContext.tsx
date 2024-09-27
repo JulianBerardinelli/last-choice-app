@@ -11,7 +11,7 @@ export type FormValues = {
   dificultadesDormir: boolean;
   perdioDineroPadres: boolean;
   faltadoReuniones: boolean;
-  dineroApuestaSemana: number;
+  dineroApuestaSemana: string;
   aumentoApuesta: boolean;
   recuperarDinero: boolean;
   resultadoRecuperarDinero: string;

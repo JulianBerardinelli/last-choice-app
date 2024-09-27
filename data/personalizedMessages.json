@@ -1,0 +1,21 @@
+{
+    "conditions": {
+      "dineroApuestaSemana": {
+        "$1.000 - $10.000": "Estás apostando una cantidad <span class='text-caution'>moderada</span>, pero este es un patrón inicial en la adicción al juego. ¡Es momento de <span class='text-danger'>reflexionar</span>!",
+        "$10.000 - $30.000": "Apostar esta cantidad regularmente podría ser señal de que estás <span class='text-danger'>desarrollando una adicción</span> al juego. ¡Es momento de <span class='text-danger'>reflexionar</span>!",
+        "$30.000 - $60.000": "La cantidad que apuestas es <span class='text-danger'>preocupante</span> y podría afectar tus finanzas personales seriamente. ¡Es momento de <span class='text-danger'>reflexionar</span>!",
+        "$60.000 - $100.000": "Estás en una <span class='text-caution'>zona de riesgo</span>, y esto podría impactar significativamente tu estabilidad financiera. ¡Es momento de <span class='text-danger'>reflexionar</span>!",
+        "+ $100.000": "Estás apostando una cantidad <span class='text-danger'>extremadamente alta</span>. Esto podría estar vinculado a comportamientos de adicción serios. ¡Es momento de <span class='text-danger'>reflexionar</span>!"
+      },
+      "edad": {
+        "18-25": "Eres <span class='text-highlight'>joven</span> y todavía tienes tiempo para revertir tus hábitos de apuestas. ¡Es momento de <span class='text-danger'>reflexionar</span>!",
+        "25-40": "En esta etapa de la vida, la estabilidad financiera es clave. ¡Considera cómo podrían mejorar tus <span class='text-highlight'>finanzas</span> sin el juego!",
+        "40+": "Es importante cuidar tus <span class='text-highlight'>ahorros</span> y evitar poner en riesgo tus finanzas en apuestas innecesarias. ¡<span class='text-danger'>Reflexiona</span> sobre tus hábitos!"
+      },
+      "recuperarDinero": {
+        "true": "Has intentado <span class='text-caution'>recuperar tu dinero</span> con otra apuesta. Este es un comportamiento común en jugadores adictos. ¡Recuerda que el juego es un <span class='text-danger'>juego de azar</span>!",
+        "false": "Aunque no intentaste recuperar el dinero apostado, es importante que no caigas en esta trampa en el futuro. ¡Recuerda que el juego es un <span class='text-danger'>juego de azar</span>!"
+      }
+    }
+  }
+  

@@ -12,6 +12,10 @@
 * {
   box-sizing: border-box;
 }
+html, body {
+  height: 100%;
+}
+
 body {
   background:  linear-gradient(to bottom, #0004ff, #020024);
   background-size: cover;
@@ -19,6 +23,13 @@ body {
   font-family: sans-serif;
   margin: 0;
   padding: 0;
+}
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+  color: #BFDBFE;
+}
+p {
+  font-weight: lighter;
 }
 header {
   display: flex;
@@ -42,3 +53,17 @@ header a {
 main {
   padding: 1rem;
 }
+
+/* TEXT SPAN HIGHLIGHT */
+.text-danger {
+  @apply text-red-500 font-bold;
+}
+
+.text-caution {
+  @apply text-yellow-500 font-bold;
+}
+
+.text-highlight {
+  @apply text-blue-500 font-semibold;
+}
+
