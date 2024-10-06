@@ -54,7 +54,7 @@ main {
 /* TEXT SPAN HIGHLIGHT */
 .text-danger {
   @apply text-red-500 font-bold;
-  text-shadow: 0 0 5px rgba(255, 0, 0, 0.5);
+  text-shadow: 0 0 5px rgba(254, 0, 0, 0.5);
 }
 
 .text-caution {
