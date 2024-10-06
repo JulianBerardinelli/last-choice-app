@@ -28,7 +28,7 @@
     ".next/types/**/*.ts",
     "**/*.ts",
     "**/*.tsx"
-  ],
+, "components/ScrollToViewMore.jsx", "components/results/ResultadoProgramacion.tsx", "components/useScrollText.jsx"  ],
   "exclude": [
     "node_modules"
   ]

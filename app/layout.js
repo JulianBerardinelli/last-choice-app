@@ -2,6 +2,7 @@
 import localFont from "next/font/local";
 import "./globals.css";
 import { FormProvider } from "../context/FormContext";
+import Header from "../components/Header";
 
 // Cargar la fuente Digital-7
 const digitalFont = localFont({
@@ -22,11 +23,19 @@ export default function RootLayout({ children }) {
         <body
           className={`${digitalFont.variable} antialiased`}
         >
-        <div className="fixed inset-0 -z-10 min-h-screen w-full bg-slate-950/85 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_2px,transparent_2px)] bg-[size:14px_24px]"></div>
-          {children}
+          {/* Fondo con patrón transparente */}
+          <div className="fixed inset-0 -z-10 h-full w-full bg-slate-950/85 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_2px,transparent_2px)] bg-[size:14px_24px]"></div>
+
+          {/* El fondo de gradient del body */}
+          <div className="fixed inset-0 -z-20 h-full w-full bg-[linear-gradient(to_bottom,#0004ff,#020024)] bg-cover bg-fixed"></div>
+
+          {/* Header y contenido */}
+          <Header />
+          <main className="relative z-10">
+            {children}
+          </main>
         </body>
       </html>
     </FormProvider>
-
   );
 }

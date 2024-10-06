@@ -2,6 +2,7 @@
 'use client'; 
 
 import { useEffect } from 'react';
+import { motion } from 'framer-motion';
 
 export default function Title() {
   useEffect(() => {
@@ -32,7 +33,15 @@ export default function Title() {
   }, []);
 
   return (
-    <h1 
+    <>
+    <motion.h1
+      initial={{ y: -100, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{
+        duration: 0.8,
+        ease: "easeOut",
+      }}
+      
       id="glitch-text" 
       className="text-7xl sm:text-7xl md:text-8xl lg:text-9xl font-semibold text-blue-500/70 uppercase font-custom"
     >
@@ -43,6 +52,20 @@ export default function Title() {
       >
         Bet<span className="filler text-blue-500/70">. . .</span>
       </span>
-    </h1>
+    </motion.h1>
+    <motion.p 
+      initial={{ scaleY: 0, opacity: 0 }}
+      animate={{ scaleY: 1, opacity: 1 }}
+      transition={{
+        delay: 3.5, // Retardo para aparecer después del título
+        duration: 0.3,
+        ease: "easeOut",
+      }}
+      style={{ transformOrigin: "top" }} 
+      className="text-base sm:text-lg md:text-xl lg:text-2xl font-light text-blue-200 text-center">
+      The home <span className="font-semibold text-red-500">always wins</span>, Don&apos;t forget it. <br />
+      But now, you are at <span className="font-bold text-green-500">home</span>
+    </motion.p>
+    </>
   );
 }

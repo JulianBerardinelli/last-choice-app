@@ -8,7 +8,7 @@
         "+ $100.000": "Estás apostando una cantidad <span class='text-danger'>extremadamente alta</span>. Esto podría estar vinculado a comportamientos de adicción serios. ¡Es momento de <span class='text-danger'>reflexionar</span>!"
       },
       "edad": {
-        "18-25": "Eres <span class='text-highlight'>joven</span> y todavía tienes tiempo para revertir tus hábitos de apuestas. ¡Es momento de <span class='text-danger'>reflexionar</span>!",
+        "18-25": "Eres <span class='text-highlight'>joven</span> y todavía tienes tiempo para revertir tus hábitos de apuestas.",
         "25-40": "En esta etapa de la vida, la estabilidad financiera es clave. ¡Considera cómo podrían mejorar tus <span class='text-highlight'>finanzas</span> sin el juego!",
         "40+": "Es importante cuidar tus <span class='text-highlight'>ahorros</span> y evitar poner en riesgo tus finanzas en apuestas innecesarias. ¡<span class='text-danger'>Reflexiona</span> sobre tus hábitos!"
       },
