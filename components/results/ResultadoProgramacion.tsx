@@ -38,7 +38,7 @@ const ResultadoProgramacion = () => {
 
       <motion.section
         style={{ opacity: opacity, y: yTransform }}
-        className="flex flex-col w-full justify-center items-center h-fit px-6 sm:px-12 md:px-20 bg-black/60 rounded-xl py-10 md:py-20 mt-10 relative"
+        className="flex flex-col w-full justify-center items-center h-fit px-6 sm:px-12 md:px-20 bg-black/60 rounded-xl py-10 md:py-20 relative"
       >
         <h5 className="text-4xl md:text-6xl font-custom font-light text-center mb-6 absolute -top-5 left-50">
           Aprende a <span className="text-blue-500 font-bold capitalize text-shadow-custom-glow-blue"> &lt;PROGRAMAR/&gt;</span>

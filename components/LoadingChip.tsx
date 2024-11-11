@@ -20,13 +20,20 @@ const LoadingChip = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentChipIndex((prevIndex) => (prevIndex + 1) % pokerChips.length);
-    }, 1500); // Cambia de ficha cada 1.5 segundos (ajusta según la duración de la rotación)
+    }, 600); // Cambia de ficha cada 1.5 segundos (ajusta según la duración de la rotación)
     
     return () => clearInterval(interval); // Limpia el intervalo cuando el componente se desmonta
   }, [pokerChips.length]);
 
   return (
-      <div className="flex flex-col items-center mt-4">
+      <motion.div className="flex flex-col items-center mt-4"
+        initial={{ y: -100, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{
+          duration: 0.4,
+          ease: "easeOut",
+      }}
+      >
         {/* Poker chip que rota y cambia */}
         <motion.img
           key={currentChipIndex} // React key para forzar el cambio de imagen
@@ -40,7 +47,7 @@ const LoadingChip = () => {
             repeat: Infinity 
           }}
         />
-      </div>
+      </motion.div>
   );
 };
 

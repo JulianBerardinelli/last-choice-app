@@ -1,17 +1,48 @@
 "use client";
 
-import { Suspense } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 import { useFormContext, FormValues } from '../../context/FormContext';
 import ResultComponent from '../../components/ResultComponent';
 import personalizedMessages from '../../data/personalizedMessages.json'; 
 import { motion } from 'framer-motion';
+import LoadingChip from '../../components/LoadingChip';
 
 export default function ResultPage() {
-  const { formData } = useFormContext();
+  const { formData, clearFormData } = useFormContext();
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    if (!formData) {
+      const storedFormData = localStorage.getItem("formData");
+      if (storedFormData) {
+        const parsedData: FormValues = JSON.parse(storedFormData);
+        console.log("Datos recuperados de localStorage:", parsedData);
+      }
+    }
+  }, [formData]);
+
+    // Mostrar el spinner durante 3 segundos
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   if (!formData) {
-    return <div>No se han encontrado los datos necesarios. Por favor, vuelve al formulario e inténtalo de nuevo.</div>;
+    return <div className='flex justify-center align-middle'>No se han encontrado los datos necesarios. Por favor, vuelve al formulario e inténtalo de nuevo.</div>;
   }
+
+  // Mostrar el spinner mientras se carga el contenido
+  if (isLoading) {
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <LoadingChip />
+      </div>
+    );
+  }
+
 
   return (
     <Suspense fallback={<div>Cargando...</div>}>
@@ -50,7 +81,9 @@ function getPersonalizedMessages(formData: FormValues) {
 function ResultPageContent({ formData }: ResultPageContentProps) {
   const { messageDineroApuesta, messageEdad, messageRecuperarDinero } = getPersonalizedMessages(formData);
 
+  
   return (
+
     <>
       <motion.section 
         initial={{ y: -100, opacity: 0 }}
@@ -59,9 +92,9 @@ function ResultPageContent({ formData }: ResultPageContentProps) {
           duration: 0.8,
           ease: "easeOut",
         }}
-        className='flex-1 flex justify-center items-center h-screen relative mt-20 sm:mt-[500px] '
+        className='flex-1 flex justify-center items-center h-screen relative custom-margin'
       >
-        <div className="flex flex-col justify-center items-center text-left gap-6 text-appear absolute inset-0 z-0 transform translate-y-[10%] px-6 sm:px-20">
+        <div className="flex flex-col justify-center items-center text-left gap-6 text-appear absolute inset-0 z-0 transform translate-y-[10%] px-6 sm:px-20 ">
           <h1 className='text-4xl sm:text-7xl font-medium font-custom text-white/80 text-center'>
             Hola <span className='text-green-500 capitalize font-bold text-shadow-custom-glow-green'>{formData.nombre}!</span>
           </h1>

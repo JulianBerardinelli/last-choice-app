@@ -74,3 +74,24 @@ carrusel-slide {
   top: 0; /* Ajustar según la posición deseada */
   z-index: 10; /* Asegúrate de que esté por encima de otros elementos */
 }
+
+/* Para pantallas grandes (desktop), mínimo 1024px */
+@media screen and (min-width: 1024px) {
+  .custom-margin {
+    margin-top: 500px; /* Ajuste para desktop */
+  }
+}
+
+/* Para pantallas medianas (tablets), entre 600px y 1023px */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .custom-margin {
+    margin-top: 600px; /* Ajuste para tablets */
+  }
+}
+
+/* Para pantallas pequeñas (móviles), máximo 599px */
+@media screen and (max-width: 768px) {
+  .custom-margin {
+    margin-top: 1000px; /* Ajuste para móviles */
+  }
+}
