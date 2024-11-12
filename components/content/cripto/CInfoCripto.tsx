@@ -22,7 +22,7 @@ const ContentCripto = () => {
       <h3 className="text-xl font-semibold mb-3">Principales Criptomonedas a Considerar</h3>
       <ul className="mb-4">
         <li className="mb-2 text-[#BFDBFE] font-light">
-          <strong className="text-caution">Bitcoin (BTC):</strong> La primera y más conocida criptomoneda. Bitcoin es considerado el "oro digital" y ha demostrado ser una reserva de valor confiable y segura.
+          <strong className="text-caution">Bitcoin (BTC):</strong> La primera y más conocida criptomoneda. Bitcoin es considerado el &quot;oro digital&quot; y ha demostrado ser una reserva de valor confiable y segura.
         </li>
         <li className="mb-2 text-[#BFDBFE] font-light">
           <strong className="text-caution">Ethereum (ETH):</strong> Ethereum es la plataforma líder para contratos inteligentes y aplicaciones descentralizadas (dApps). Ofrece una infraestructura robusta para el desarrollo de proyectos DeFi (Finanzas Descentralizadas).

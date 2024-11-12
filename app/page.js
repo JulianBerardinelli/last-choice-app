@@ -18,7 +18,6 @@ export default function HomePage() {
       </section>
       <section>
         <div>
-          <img></img>
           <h3>
             Introducción a Last Choice
           </h3>
