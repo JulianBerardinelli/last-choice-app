@@ -67,6 +67,10 @@ main {
   @apply text-blue-500 font-semibold;
   text-shadow: 0 0 5px rgba(0, 0, 255, 0.5);
 }
+.text-success {
+  @apply text-green-500 font-bold;
+  text-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
+}
 
 /* Carrusel */
 carrusel-slide {

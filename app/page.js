@@ -2,10 +2,8 @@
 /* eslint-disable react/no-unescaped-entities */
 
 import Title from '../components/Title.js';
-import Header from '../components/Header.js';
 
 import FormComponent from '../components/FormComponent.tsx';
-import LoadingChip from '../components/LoadingChip.tsx';
 
 export default function HomePage() {
   return (

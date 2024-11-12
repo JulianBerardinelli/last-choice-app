@@ -289,16 +289,14 @@ const FormComponent = () => {
           required
         >
           <option value="">Selecciona</option>
-          <option value="Aprender edición de videos">Aprender edición de videos</option>
+          <option value="Aprender sobre criptomonedas">Aprender sobre criptomonedas</option>
           <option value="Aprender a programar">Aprender a programar</option>
           <option value="Aprender inglés">Aprender inglés</option>
-          <option value="Aprender finanzas">Aprender finanzas</option>
-          <option value="Aprender sobre criptomonedas">Aprender sobre criptomonedas</option>
-          <option value="Aprender sobre I.A">Aprender sobre I.A</option>
-          <option value="Aprender sobre Marketing digital">Aprender sobre Marketing digital</option>
           <option value="Aprender economía">Aprender economía</option>
+          <option value="Aprender sobre I.A">Aprender sobre I.A</option>
+          <option value="Aprender edición de videos">Aprender edición de videos</option>
           <option value="Aprender a diseñar">Aprender a diseñar</option>
-          <option value="Cómo hacer mi primera inversión">Cómo hacer mi primera inversión</option>
+
         </select>
       </div>
 

@@ -6,6 +6,7 @@ import CardComponent from '../CardComponent';
 import ModalComponent from '../ModalComponent';
 import cardData from '../content/programacion/CardData'; // Mantener los otros datos
 import TickerCarrousel from '../TickerCarrousel';
+import tickerData from "../content/programacion/tickerData";
 
 const ResultadoProgramacion = () => {
   const { scrollYProgress } = useScroll();
@@ -74,7 +75,7 @@ const ResultadoProgramacion = () => {
           <h2 className="text-4xl font-bold text-white/80 font-custom text-center mt-10"> <span className="text-red-500 text-shadow-custom-glow-red">CURSOS</span> INTERESANTES PARA TI</h2>
           <p className="bg-blue-500/15 text-white px-4 py-2 rounded-xl w-full sm:w-[90%] max-w-[900px] mx-auto mb-3 mt-3 text-center">Desde Last Choice, te ofrecemos una selección de cursos diseñados para ayudarte a desarrollar tus habilidades y avanzar en tu carrera profesional. Elige entre una variedad de temas que van desde la programación hasta el desarrollo web y más.</p>
         </div>
-        <TickerCarrousel />
+        <TickerCarrousel data={tickerData} />
 
 
       </motion.section>
