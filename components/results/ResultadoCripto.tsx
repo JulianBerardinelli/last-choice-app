@@ -58,7 +58,7 @@ const ResultadoCripto = () => {
           
           <div className="md:col-span-2">
             <article>
-              <h2 className="flex items-center gap-2 text-3xl md:text-4xl font-bold text-white/80 font-custom">Aprende de los <span className='text-green-500 text-shadow-custom-glow-green'> Mejores</span> y Gratis!
+              <h2 className="flex items-center gap-2 text-3xl md:text-4xl font-bold text-white/80 font-custom">Aprende de los <span className='text-green-500 text-shadow-custom-glow-green'> Mejores</span>
               <YoutubeIcon size={40} />
               </h2>
               <div className='grid grid-cols-1 md:grid-cols-2 gap-4 py-4'>

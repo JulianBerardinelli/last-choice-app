@@ -1,6 +1,7 @@
 import CryptoIcon from '../../svg-logos/BitcoinIcon'; 
 import PlaztiIcon from '../../svg-logos/PlatziIcon';
 import CoderHouseIcon from '../../svg-logos/CoderHouseIcon';
+import MetamindIcon from '../../svg-logos/MetamindIcon';
 const tickerData = [
   {
     title: "Bitcoin y Blockchain",
@@ -12,14 +13,14 @@ const tickerData = [
   {
     title: "Empezando en el Mundo Cripto",
     content: "Guía práctica para comenzar en el mundo cripto. Aprende a comprar criptomonedas, almacenarlas de forma segura y generar intereses con tus activos.",
-    icon: CryptoIcon, // Componente SVG para criptomonedas
+    icon: MetamindIcon, // Componente SVG para criptomonedas
     TAGS: ["Inversión", "Seguridad", "Intereses"],
     url: "https://metamind.la/cursos/26"
   },
   {
     title: "El Mercado y Análisis Técnico",
     content: "Aprende la diferencia entre análisis técnico y fundamental. Conoce las velas japonesas y descubre cómo detectar tendencias en el mercado cripto.",
-    icon: CryptoIcon, // Componente SVG para criptomonedas
+    icon: MetamindIcon, // Componente SVG para criptomonedas
     TAGS: ["Análisis Técnico", "Velas Japonesas", "Tendencias"],
     url: "https://metamind.la/cursos/11"
   },

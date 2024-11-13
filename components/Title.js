@@ -3,6 +3,7 @@
 
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
+import ArrowDownIcon from './svg-logos/ArrowDownIcon';
 
 export default function Title() {
   useEffect(() => {
@@ -31,6 +32,8 @@ export default function Title() {
       glitchEffect();
     }, 3000);
   }, []);
+
+
 
   return (
     <>
@@ -66,6 +69,20 @@ export default function Title() {
       The home <span className="font-semibold text-red-500">always wins</span>, Don&apos;t forget it. <br />
       But now, you are at <span className="font-bold text-green-500">home</span>
     </motion.p>
+    <motion.div
+      initial={{ y: -20, opacity: 0 }} 
+      animate={{ y: [0, 10, 0], opacity: 1 }} 
+      transition={{
+        delay: 3.5, 
+        duration: 1.2, 
+        ease: "easeOut", 
+      }}
+      className='flex flex-col items-center mt-3'
+    >    
+       <ArrowDownIcon />
+       <ArrowDownIcon />
+    </motion.div>
+
     </>
   );
 }

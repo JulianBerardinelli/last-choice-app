@@ -30,6 +30,7 @@ export default function CardComponent({ title, imageSrc, onOpen }: CardProps) {
           color="default"
           radius="lg"
           size="sm"
+          onPress={onOpen}
         >
           Ver más
         </Button>
