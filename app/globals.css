@@ -16,6 +16,7 @@ html, body {
   height: 100%;
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
 }
 
 body {
@@ -78,6 +79,12 @@ carrusel-slide {
   top: 0; /* Ajustar según la posición deseada */
   z-index: 10; /* Asegúrate de que esté por encima de otros elementos */
 }
+.ticker-wrapper {
+  position: relative;
+  overflow: hidden;
+  mask-image: linear-gradient(to right, transparent, black 10%, black 80%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 80%, transparent);
+}
 
 /* Para pantallas grandes (desktop), mínimo 1024px */
 @media screen and (min-width: 1024px) {
@@ -96,6 +103,12 @@ carrusel-slide {
 /* Para pantallas pequeñas (móviles), máximo 599px */
 @media screen and (max-width: 768px) {
   .custom-margin {
-    margin-top: 1000px; /* Ajuste para móviles */
+    margin-top: 1300px; /* Ajuste para móviles */
+  }
+  .ticker-wrapper {
+    position: relative;
+    overflow: hidden;
+    mask-image: none;
+    -webkit-mask-image: none;
   }
 }
