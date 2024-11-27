@@ -30,8 +30,10 @@ export default function RootLayout({ children }) {
           <div className="fixed inset-0 -z-20 h-full w-full bg-[linear-gradient(to_bottom,#0004ff,#020024)] bg-cover bg-fixed"></div>
 
           {/* Header y contenido */}
+          <div className="relative">
           <Header />
-          <main className="relative z-10">
+          </div>
+          <main className="relative z-0">
             {children}
           </main>
         </body>

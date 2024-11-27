@@ -75,9 +75,9 @@ main {
 
 /* Carrusel */
 carrusel-slide {
-  position: fixed; /* Para hacer que el carrusel quede fijo en la pantalla */
-  top: 0; /* Ajustar según la posición deseada */
-  z-index: 10; /* Asegúrate de que esté por encima de otros elementos */
+  position: fixed; 
+  top: 0; 
+  z-index: 10; 
 }
 .ticker-wrapper {
   position: relative;
@@ -112,3 +112,25 @@ carrusel-slide {
     -webkit-mask-image: none;
   }
 }
+/* Para pantallas grandes (desktop), mínimo 1024px */
+@media screen and (min-width: 1024px) {
+  .custom-margin-about {
+    margin-top: 40px; /* Ajuste para desktop */
+  }
+}
+
+/* Para pantallas medianas (tablets), entre 600px y 1023px */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .custom-margin-about {
+    margin-top: 200px; /* Ajuste para tablets */
+  }
+}
+
+/* Para pantallas pequeñas (móviles), máximo 599px */
+@media screen and (max-width: 768px) {
+  .custom-margin-about {
+    margin-top: 200px; /* Ajuste para móviles */
+  }
+
+}
+
