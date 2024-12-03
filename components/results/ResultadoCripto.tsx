@@ -33,7 +33,7 @@ const ResultadoCripto = () => {
       <motion.div 
         initial={{ y: -400, opacity: 0.5, rotateX: 10 }}
         animate={{ y: 0, opacity: 1 }}
-        className="bg-blue-500/15 text-white px-4 py-2 rounded-xl w-full sm:w-[90%] max-w-[700px] mx-auto mt-4"
+        className="bg-blue-500/15 text-white px-4 py-2 rounded-xl w-full max-w-[700px] mx-auto mt-4"
       >
       <span>Aprender sobre Criptomonedas: Tu Mejor Inversión.</span>
       <p>En el mundo financiero actual, las criptomonedas se han convertido en una opción popular para diversificar inversiones y obtener altos rendimientos. Aprender sobre este ecosistema puede brindarte nuevas oportunidades y una ventaja competitiva en el mercado...</p>
@@ -58,7 +58,7 @@ const ResultadoCripto = () => {
           
           <div className="md:col-span-2">
             <article>
-              <h2 className="flex items-center gap-2 text-3xl md:text-4xl font-bold text-white/80 font-custom">Aprende de los <span className='text-green-500 text-shadow-custom-glow-green'> Mejores</span>
+              <h2 className="flex items-center gap-2 text-2xl md:text-4xl font-bold text-white/80 font-custom">Aprende de los <span className='text-green-500 text-shadow-custom-glow-green'> Mejores</span>
               <YoutubeIcon size={40} />
               </h2>
               <div className='grid grid-cols-1 md:grid-cols-2 gap-4 py-4'>

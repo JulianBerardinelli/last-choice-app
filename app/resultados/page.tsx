@@ -94,7 +94,7 @@ function ResultPageContent({ formData }: ResultPageContentProps) {
         }}
         className='flex-1 flex justify-center items-center h-screen relative custom-margin'
       >
-        <div className="flex flex-col justify-center items-center text-left gap-6 text-appear absolute inset-0 z-0 transform translate-y-[10%] px-6 sm:px-20 ">
+        <div className="flex flex-col justify-center items-center text-left gap-6 text-appear absolute inset-0 z-0 transform translate-y-[10%] sm:px-20 ">
           <h1 className='text-4xl sm:text-7xl font-medium font-custom text-white/80 text-center'>
             Hola <span className='text-green-500 capitalize font-bold text-shadow-custom-glow-green'>{formData.nombre}!</span>
           </h1>
