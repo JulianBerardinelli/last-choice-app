@@ -114,7 +114,7 @@ export default function Header() {
       `}</style>
 
       {/* Cabecera con navegación */}
-      <header className="z-50 flex justify-center items-center p-4">
+      <header className="z-50 flex justify-center items-center p-4 mt-5">
         {/* Botón de menú para pantallas pequeñas */}
         <button className="menu-btn" onClick={toggleMenu}>
           {menuOpen ? (

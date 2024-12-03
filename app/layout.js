@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import { FormProvider } from "../context/FormContext";
 import Header from "../components/Header";
+import FooterComponent from "../components/FooterComponent"
 
 // Cargar la fuente Digital-7
 const digitalFont = localFont({
@@ -35,6 +36,7 @@ export default function RootLayout({ children }) {
           
             {children}
           </main>
+          <FooterComponent/>
         </body>
       </html>
     </FormProvider>
