@@ -134,3 +134,39 @@ carrusel-slide {
 
 }
 
+
+/* Para pantallas grandes (desktop), mínimo 1024px */
+@media screen and (min-width: 1024px) {
+  .desktop-margin {
+    margin-top: 60px; /* Ajuste para desktop */
+  }
+  .desktop-form-wrapper {
+    max-width: 800px;
+    padding: 40px;
+    padding-bottom: 20px;
+  }
+}
+
+/* Para pantallas medianas (tablets), entre 600px y 1023px */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .tablet-margin {
+    margin-top: 100px; /* Ajuste para tablets */
+  }
+  .tablet-form-wrapper {
+    max-width: 95%;
+    padding: 30px;
+  }
+}
+
+/* Para pantallas pequeñas (móviles), máximo 599px */
+@media screen and (max-width: 430px) {
+  .mobile-margin {
+    margin-top: 950px; /* Ajuste para móviles */
+  }
+  .mobile-form-wrapper {
+    width: 100%;
+    padding: 20px;
+  }
+}
+
+

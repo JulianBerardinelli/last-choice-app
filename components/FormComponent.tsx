@@ -1,320 +1,310 @@
-"use client"; 
+"use client";
 
-import { useFormContext } from '../context/FormContext';
-import { useState } from 'react';
-import { useRouter } from 'next/navigation';  
+import { useFormContext } from "../context/FormContext";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { Button } from "@nextui-org/react";
+import ArrowRightIcon from "./svg-logos/ArrowrightIcon";
 
 const FormComponent = () => {
-  const router = useRouter(); 
+  const router = useRouter();
   const { setFormData } = useFormContext();
 
+  const [step, setStep] = useState(0);
+  const [emailError, setEmailError] = useState("");
   const [form, setForm] = useState({
-    nombre: '',
-    edad: '',
-    mail: '',
-    prestamo: '',
-    dificultadesDormir: '',
-    perdioDineroPadres: '',
-    faltadoReuniones: '',
-    dineroApuestaSemana: '',
-    aumentoApuesta: '',
-    recuperarDinero: '',
-    resultadoRecuperarDinero: '',
-    lugarApuesta: '',
-    opcionAprender: '',
+    nombre: "",
+    edad: "",
+    mail: "",
+    prestamo: "",
+    dificultadesDormir: "",
+    perdioDineroPadres: "",
+    faltadoReuniones: "",
+    dineroApuestaSemana: "",
+    aumentoApuesta: "",
+    recuperarDinero: "",
+    resultadoRecuperarDinero: "",
+    lugarApuesta: "",
+    opcionAprender: "",
   });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+  const steps = [
+    {
+      title: "1. Información Personal",
+      fields: [
+        { name: "nombre", label: "Nombre", type: "text", placeholder: "Tu nombre" },
+        { name: "edad", label: "Edad", type: "number", placeholder: "Tu edad" },
+        { name: "mail", label: "Correo electrónico", type: "email", placeholder: "Tu correo" },
+      ],
+    },
+    {
+      title: "2. Impacto de las apuestas",
+      fields: [
+        {
+          name: "prestamo",
+          label: "¿Pidió prestado dinero?",
+          type: "select",
+          options: ["Sí", "No"],
+        },
+        {
+          name: "dificultadesDormir",
+          label: "¿El juego le ha causado dificultades para dormir?",
+          type: "select",
+          options: ["Sí", "No"],
+        },
+        {
+          name: "perdioDineroPadres",
+          label: "¿Ha perdido el dinero que le dieron sus padres?",
+          type: "select",
+          options: ["Sí", "No"],
+        },
+      ],
+    },
+    {
+      title: "3. Comportamientos asociados",
+      fields: [
+        {
+          name: "faltadoReuniones",
+          label: "¿Ha faltado a reuniones debido al juego?",
+          type: "select",
+          options: ["Sí", "No"],
+        },
+        {
+          name: "dineroApuestaSemana",
+          label: "¿Cuánto dinero apuesta por semana?",
+          type: "select",
+          options: [
+            "$1.000 - $10.000",
+            "$10.000 - $30.000",
+            "$30.000 - $60.000",
+            "$60.000 - $100.000",
+            "+ $100.000",
+          ],
+        },
+        {
+          name: "aumentoApuesta",
+          label: "¿La cantidad apostada ha aumentado?",
+          type: "select",
+          options: ["Sí", "No"],
+        },
+      ],
+    },
+    {
+      title: "4. Últimos pasos",
+      fields: [
+        {
+          name: "recuperarDinero",
+          label: "¿Intentó recuperar dinero con otra apuesta?",
+          type: "select",
+          options: ["Sí", "No"],
+        },
+        {
+          name: "resultadoRecuperarDinero",
+          label: "¿Cómo resultó?",
+          type: "textarea",
+          placeholder: "Describe cómo resultó",
+        },
+        {
+          name: "opcionAprender",
+          label: "¿Qué te gustaría aprender?",
+          type: "select",
+          options: [
+            "Aprender sobre criptomonedas",
+            "Aprender a programar",
+            "Aprender inglés",
+            "Aprender economía",
+            "Aprender sobre I.A",
+            "Aprender edición de videos",
+            "Aprender a diseñar",
+          ],
+        },
+      ],
+    },
+  ];
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+
+    if (name === "mail") {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(value)) {
+        setEmailError("Por favor, introduce un correo válido.");
+      } else {
+        setEmailError("");
+      }
+    }
+
     setForm({
       ...form,
-      [e.target.name]: e.target.value,
+      [name]: value,
     });
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const isStepComplete = () => {
+    return (
+      steps[step].fields.every((field) => form[field.name]?.trim() !== "") &&
+      emailError === ""
+    );
+  };
+
+  const handleNext = () => {
+    if (step < steps.length - 1) {
+      setStep(step + 1);
+    }
+  };
+
+  const handleBack = () => {
+    if (step > 0) {
+      setStep(step - 1);
+    }
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     const formattedForm = {
       ...form,
-      prestamo: form.prestamo === 'Si' ? true : false,
-      dificultadesDormir: form.dificultadesDormir === 'Si' ? true : false,
-      perdioDineroPadres: form.perdioDineroPadres === 'Si' ? true : false,
-      faltadoReuniones: form.faltadoReuniones === 'Si' ? true : false,
-      aumentoApuesta: form.aumentoApuesta === 'Si' ? true : false,
-      recuperarDinero: form.recuperarDinero === 'Si' ? true : false,
-      edad: parseInt(form.edad, 10), // Convertir edad a número
+      edad: parseInt(form.edad, 10),
+      prestamo: form.prestamo === "Sí",
+      dificultadesDormir: form.dificultadesDormir === "Sí",
+      perdioDineroPadres: form.perdioDineroPadres === "Sí",
+      faltadoReuniones: form.faltadoReuniones === "Sí",
+      aumentoApuesta: form.aumentoApuesta === "Sí",
+      recuperarDinero: form.recuperarDinero === "Sí",
     };
 
-  
-    console.log('Datos del formulario antes de enviar:', form);  // Verificación de los datos del formulario
-  
     try {
-      const res = await fetch('/api/submitForm', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+      const res = await fetch("/api/submitForm", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formattedForm),
       });
-  
+
       if (res.ok) {
-        console.log('Formulario enviado correctamente');
-    
         setFormData(formattedForm);
-      // Redirigir a la página de resultados sin parámetros en la URL
-        router.push('/resultados');
+        router.push("/resultados");
       } else {
         const errorData = await res.json();
-        console.error('Error al enviar el formulario:', errorData.message);
+        console.error("Error al enviar el formulario:", errorData.message);
       }
     } catch (error) {
-      console.error('Error al enviar el formulario:', error);
+      console.error("Error al enviar el formulario:", error);
     }
   };
 
   return (
-    <form onSubmit={handleSubmit} className="max-w-lg mx-auto p-4 bg-white shadow-md rounded-lg">
-      <h2 className="text-2xl font-bold mb-4">Formulario Last Choice</h2>
-
-      {/* Nombre */}
-      <div className="mb-4">
-        <label className="block text-sm font-medium mb-1" htmlFor="nombre">Nombre</label>
-        <input
-          type="text"
-          name="nombre"
-          id="nombre"
-          value={form.nombre}
-          onChange={handleChange}
-          placeholder="Tu nombre"
-          className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-          required
-        />
-      </div>
-
-      {/* Edad */}
-      <div className="mb-4">
-        <label className="block text-sm font-medium mb-1" htmlFor="edad">Edad</label>
-        <input
-          type="number"
-          name="edad"
-          id="edad"
-          value={form.edad}
-          onChange={handleChange}
-          placeholder="Tu edad"
-          className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-          required
-        />
-      </div>
-
-      {/* Mail */}
-      <div className="mb-4">
-        <label className="block text-sm font-medium mb-1" htmlFor="mail">Correo electrónico</label>
-        <input
-          type="email"
-          name="mail"
-          id="mail"
-          value={form.mail}
-          onChange={handleChange}
-          placeholder="Tu correo"
-          className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-          required
-        />
-      </div>
-
-      {/* ¿Pidió prestado dinero? */}
-      <div className="mb-4">
-        <label className="block text-sm font-medium mb-1" htmlFor="prestamo">¿Pidió prestado dinero?</label>
-        <select
-          name="prestamo"
-          id="prestamo"
-          value={form.prestamo}
-          onChange={handleChange}
-          className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-          required
-        >
-          <option value="">Selecciona</option>
-          <option value="Si">Sí</option>
-          <option value="No">No</option>
-        </select>
-      </div>
-
-      {/* Dificultades para dormir */}
-      <div className="mb-4">
-        <label className="block text-sm font-medium mb-1" htmlFor="dificultadesDormir">¿El juego le ha causado dificultades para dormir?</label>
-        <select
-          name="dificultadesDormir"
-          id="dificultadesDormir"
-          value={form.dificultadesDormir}
-          onChange={handleChange}
-          className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-          required
-        >
-          <option value="">Selecciona</option>
-          <option value="Si">Sí</option>
-          <option value="No">No</option>
-        </select>
-      </div>
-
-      {/* Perdió el dinero dado por sus padres */}
-      <div className="mb-4">
-        <label className="block text-sm font-medium mb-1" htmlFor="perdidoDineroPadres">¿Ha perdido el dinero que le dieron sus padres por el fin de semana por el juego?</label>
-        <select
-          name="perdioDineroPadres"
-          id="perdioDineroPadres"
-          value={form.perdioDineroPadres}
-          onChange={handleChange}
-          className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-          required
-        >
-          <option value="">Selecciona</option>
-          <option value="Si">Sí</option>
-          <option value="No">No</option>
-        </select>
-      </div>
-
-      {/* Faltó a reuniones por perder dinero */}
-      <div className="mb-4">
-        <label className="block text-sm font-medium mb-1" htmlFor="faltadoReuniones">¿Ha faltado a reuniones con amigos debido a que perdió el dinero apostando?</label>
-        <select
-          name="faltadoReuniones"
-          id="faltadoReuniones"
-          value={form.faltadoReuniones}
-          onChange={handleChange}
-          className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-          required
-        >
-          <option value="">Selecciona</option>
-          <option value="Si">Sí</option>
-          <option value="No">No</option>
-        </select>
-      </div>
-
-      {/* Cantidad de dinero apostado por semana */}
-      <div className="mb-4">
-        <label className="block text-sm font-medium mb-1" htmlFor="dineroApuestaSemana">¿Cuánto dinero apuesta por semana? ($ Arg)</label>
-        <select
-          name="dineroApuestaSemana"
-          id="dineroApuestaSemana"
-          value={form.dineroApuestaSemana}
-          onChange={handleChange}
-          className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-          required
-        >
-          <option value="">Selecciona</option>
-          <option value="$1.000 - $10.000">$1.000 - $10.000</option>
-          <option value="$10.000 - $30.000">$10.000 - $30.000</option>
-          <option value="$30.000 - $60.000">$30.000 - $60.000</option>
-          <option value="$60.000 - $100.000">$60.000 - $100.000</option>
-          <option value="+ $100.000">+ $100.000</option>
-        </select>
-      </div>
-
-      {/* ¿Aumentó la cantidad apostada en relación con las primeras apuestas? */}
-      <div className="mb-4">
-        <label className="block text-sm font-medium mb-1" htmlFor="aumentoApuesta">¿La cantidad que apuesta ha aumentado respecto a sus primeras apuestas?</label>
-        <select
-          name="aumentoApuesta"
-          id="aumentoApuesta"
-          value={form.aumentoApuesta}
-          onChange={handleChange}
-          className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-          required
-        >
-          <option value="">Selecciona</option>
-          <option value="Si">Sí</option>
-          <option value="No">No</option>
-        </select>
-      </div>
-
-      {/* Intentó recuperar el dinero perdido */}
-      <div className="mb-4">
-        <label className="block text-sm font-medium mb-1" htmlFor="recuperarDinero">¿Intentó recuperar el dinero perdido con otra apuesta?</label>
-        <select
-          name="recuperarDinero"
-          id="recuperarDinero"
-          value={form.recuperarDinero}
-          onChange={handleChange}
-          className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-          required
-        >
-          <option value="">Selecciona</option>
-          <option value="Si">Sí</option>
-          <option value="No">No</option>
-        </select>
-      </div>
-
-      {/* Resultado de la recuperación del dinero */}
-      <div className="mb-4">
-        <label className="block text-sm font-medium mb-1" htmlFor="resultadoRecuperarDinero">¿Cómo resultó?</label>
-        <textarea
-          name="resultadoRecuperarDinero"
-          id="resultadoRecuperarDinero"
-          value={form.resultadoRecuperarDinero}
-          onChange={handleChange}
-          placeholder="Explicar cómo resultó"
-          className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-          required
-        />
-      </div>
-
-      {/* Lugar habitual donde apuesta */}
-      <div className="mb-4">
-        <label className="block text-sm font-medium mb-1" htmlFor="lugarApuesta">¿Dónde suele apostar habitualmente?</label>
-        <select
-          name="lugarApuesta"
-          id="lugarApuesta"
-          value={form.lugarApuesta}
-          onChange={handleChange}
-          className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-          required
-        >
-          <option value="">Selecciona</option>
-          <option value="Colegio">Colegio</option>
-          <option value="Casa">Casa</option>
-          <option value="Casa de amigos">Casa de amigos</option>
-          <option value="Trabajo">Trabajo</option>
-          <option value="Otro">Otro</option>
-        </select>
-      </div>
-
-      {/* Opción de aprendizaje */}
-      <div className="mb-4">
-        <label className="block text-sm font-medium mb-1" htmlFor="opcionAprender">Si pudieras hacer otra cosa con ese dinero, ¿cuál de estas elegirías?</label>
-        <select
-          name="opcionAprender"
-          id="opcionAprender"
-          value={form.opcionAprender}
-          onChange={handleChange}
-          className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-          required
-        >
-          <option value="">Selecciona</option>
-          <option value="Aprender sobre criptomonedas">Aprender sobre criptomonedas</option>
-          <option value="Aprender a programar">Aprender a programar</option>
-          <option value="Aprender inglés">Aprender inglés</option>
-          <option value="Aprender economía">Aprender economía</option>
-          <option value="Aprender sobre I.A">Aprender sobre I.A</option>
-          <option value="Aprender edición de videos">Aprender edición de videos</option>
-          <option value="Aprender a diseñar">Aprender a diseñar</option>
-
-        </select>
-      </div>
-
-      {/* Botón de envío */}
-      <div className="mt-6">
-        <button
-          type="submit"
-          className="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
-        >
-          Enviar
-        </button>
-      </div>
-    </form>
+    <>
+      <section className="flex flex-col tablet-margin mobile-margin">
+        <div className="form-wrapper desktop-form-wrapper tablet-form-wrapper mobile-form-wrapper">
+          <h1 className="text-7xl font-blac font-custom text-center mt-8">
+            Soy <span className="text-red-500 font-bold capitalize text-shadow-custom-glow-red">Adicto?</span>
+          </h1>
+          <p className="text-sm sm:text-base">
+            En Last Choice, hemos creado un formulario para ayudarte a reflexionar sobre tus hábitos de apuesta. Con tus respuestas, realizaremos un análisis personalizado para guiarte hacia alternativas que se alineen con tus intereses y te permitan construir un futuro más positivo. ¡Da el primer paso y descubre el camino que mejor se adapta a ti!
+          </p>
+        </div>
+      </section>
+      <form
+        onSubmit={handleSubmit}
+        className="w-full max-w-[95%] sm:max-w-[700px] mx-auto p-4 sm:p-8 bg-blue-900/15 shadow-lg shadow-blue-700 rounded-lg border-2 border-green-500 text-white"
+      >
+        <h2 className="text-2xl sm:text-3xl font-black mb-6 text-center p-4 rounded-lg">{steps[step].title}</h2>
+        <div className="space-y-4 sm:space-y-6">
+          {steps[step].fields.map((field) => (
+            <div key={field.name} className="mb-4 sm:mb-6">
+              <label className="block text-sm sm:text-lg font-black mb-2 text-white" htmlFor={field.name}>
+                {field.label}
+              </label>
+              {field.type === "select" ? (
+                <select
+                  name={field.name}
+                  id={field.name}
+                  value={form[field.name] || ""}
+                  onChange={handleChange}
+                  className="w-full px-3 sm:px-4 py-2 sm:py-3 bg-blue-900/35 border border-green-500 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-white"
+                  required
+                >
+                  <option value="">Selecciona</option>
+                  {field.options?.map((option) => (
+                    <option key={option} value={option}>
+                      {option}
+                    </option>
+                  ))}
+                </select>
+              ) : field.type === "textarea" ? (
+                <textarea
+                  name={field.name}
+                  id={field.name}
+                  value={form[field.name] || ""}
+                  onChange={handleChange}
+                  placeholder={field.placeholder}
+                  className="w-full px-3 sm:px-4 py-2 sm:py-3 bg-blue-900/35 border border-green-500 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-white"
+                  required
+                />
+              ) : (
+                <input
+                  type={field.type}
+                  name={field.name}
+                  id={field.name}
+                  value={form[field.name] || ""}
+                  onChange={handleChange}
+                  placeholder={field.placeholder}
+                  className="w-full px-3 sm:px-4 py-2 sm:py-3 bg-blue-900/35 border border-green-500 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-white"
+                  required
+                />
+              )}
+              {field.name === "mail" && emailError && (
+                <p className="text-red-500 text-xs sm:text-sm mt-2">{emailError}</p>
+              )}
+            </div>
+          ))}
+        </div>
+        <div className="h-2 bg-gray-300 rounded-full overflow-hidden my-4 sm:my-6">
+          <div
+            className="h-full transition-all duration-300"
+            style={{
+              width: `${((step + 1) / steps.length) * 100}%`,
+              background: step === 0
+                ? "rgba(254, 0, 0, 1)"
+                : step === 1
+                ? "rgba(255, 255, 0, 1)"
+                : step === 2
+                ? "rgba(0, 0, 255, 1)"
+                : "rgba(0, 255, 0, 1)",
+            }}
+          ></div>
+        </div>
+        <div className="flex justify-between">
+          {step > 0 && (
+            <Button type="button" onClick={handleBack} className="bg-gray-500 text-white hover:bg-gray-600">
+              Atrás
+            </Button>
+          )}
+          {step < steps.length - 1 ? (
+            <Button
+              type="button"
+              onClick={handleNext}
+              disabled={!isStepComplete()}
+              className={`${
+                isStepComplete() ? "bg-blue-500 hover:bg-blue-600 text-white" : "bg-gray-300 text-gray-500"
+              }`}
+            >
+              Siguiente
+              <ArrowRightIcon />
+            </Button>
+          ) : (
+            <Button
+              variant="shadow"
+              type="submit"
+              className="bg-green-500 text-white hover:bg-green-600"
+            >
+              Enviar
+            </Button>
+          )}
+        </div>
+      </form>
+    </>
   );
 };
 
 export default FormComponent;
-
-
-
-
