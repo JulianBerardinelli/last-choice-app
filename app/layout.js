@@ -3,7 +3,6 @@ import localFont from "next/font/local";
 import "./globals.css";
 import { FormProvider } from "../context/FormContext";
 import Header from "../components/Header";
-import FooterComponent from "../components/FooterComponent"
 
 // Cargar la fuente Digital-7
 const digitalFont = localFont({
@@ -14,7 +13,8 @@ const digitalFont = localFont({
 
 export const metadata = {
   title: "Last Choice",
-  description: "A gambling awareness site",
+  description: "The home always wins, Don't forget it. But now, you are at home",
+  
 };
 
 export default function RootLayout({ children }) {
@@ -32,11 +32,11 @@ export default function RootLayout({ children }) {
 
           {/* Header y contenido */}
           <Header />
-          <main className="relative z-0 pt-20">
+          <main className="relative z-0 pt-20 ">
           
             {children}
           </main>
-          <FooterComponent/>
+          
         </body>
       </html>
     </FormProvider>

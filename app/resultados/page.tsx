@@ -6,6 +6,7 @@ import ResultComponent from '../../components/ResultComponent';
 import personalizedMessages from '../../data/personalizedMessages.json'; 
 import { motion } from 'framer-motion';
 import LoadingChip from '../../components/LoadingChip';
+import FooterComponent from '../../components/FooterComponent';
 
 export default function ResultPage() {
   const { formData, clearFormData } = useFormContext();

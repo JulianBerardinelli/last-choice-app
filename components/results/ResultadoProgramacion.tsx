@@ -7,6 +7,7 @@ import ModalComponent from '../ModalComponent';
 import cardData from '../content/programacion/CardData'; // Mantener los otros datos
 import TickerCarrousel from '../TickerCarrousel';
 import tickerData from "../content/programacion/tickerData";
+import FooterComponent from "../FooterComponent";
 
 const ResultadoProgramacion = () => {
   const { scrollYProgress } = useScroll();
@@ -90,6 +91,9 @@ const ResultadoProgramacion = () => {
           content={selectedCard.content}
         />
       )}
+      <section className='mt-20'>
+      <FooterComponent/>
+     </section>
     </>
   );
 };

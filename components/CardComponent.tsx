@@ -11,7 +11,7 @@ export default function CardComponent({ title, imageSrc, onOpen }: CardProps) {
     <Card
       isFooterBlurred
       radius="lg"
-      className="border-none max-w-[500px]"  // Fijamos el ancho máximo de la tarjeta
+      className="border-none max-w-[400px] "  // Fijamos el ancho máximo de la tarjeta
       isPressable
       onPress={onOpen}
     >

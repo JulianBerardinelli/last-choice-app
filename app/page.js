@@ -6,6 +6,7 @@ import Title from '../components/Title.js';
 import FormComponent from '../components/FormComponent.tsx';
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
+import FooterComponent from '../components/FooterComponent.jsx';
 
 export default function HomePage() {
   const sectionsRef = useRef([]);
@@ -86,11 +87,16 @@ export default function HomePage() {
 
       {/* Tercera sección */}
       <section
+        id="formulario"
         ref={(el) => (sectionsRef.current[2] = el)}
         className="h-screen flex flex-col items-center justify-center text-white sm:mt-20"
       >
         <FormComponent />
       </section>
+
+     <section className='mt-20'>
+      <FooterComponent/>
+     </section>
     </>
   );
 }

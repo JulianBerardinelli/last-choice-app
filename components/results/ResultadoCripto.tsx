@@ -8,6 +8,7 @@ import cardData from '../content/cripto/CardData'; // Mantener los otros datos
 import TickerCarrousel from '../TickerCarrousel';
 import YoutubeIcon from "../svg-logos/YoutubeIcon";
 import tickerData from "../content/cripto/tickerData";
+import FooterComponent from "../FooterComponent";
 
 // components/ResultadoFinanzas.tsx
 const ResultadoCripto = () => {
@@ -102,6 +103,9 @@ const ResultadoCripto = () => {
           link={selectedCard.link}
         />
       )}
+      <section className='mt-20'>
+      <FooterComponent/>
+     </section>
     </>
   );
   };

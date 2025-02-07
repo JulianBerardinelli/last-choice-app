@@ -10,6 +10,19 @@ export default function Header() {
     document.body.style.overflow = menuOpen ? '' : 'hidden'; // Bloquear/desbloquear el scroll
   };
 
+  const scrollToForm = () => {
+    const formSection = document.getElementById("formulario");
+  
+    if (formSection) {
+      formSection.scrollIntoView({ behavior: "smooth" });
+      setMenuOpen(false);
+      document.body.style.overflow = ''; 
+    } else {
+      // Redirige al inicio si no está en la página principal
+      window.location.href = "/#formulario";
+    }
+  };
+
   return (
     <>
       <style>{`
@@ -163,7 +176,7 @@ export default function Header() {
               </a>
             </li>
             <li>
-              <a href="/formulario" className="hover:text-green-400 transition duration-300" onClick={toggleMenu}>
+              <a className="hover:text-green-400 transition duration-300" onClick={scrollToForm}>
                 ¿Soy adicto?
               </a>
             </li>

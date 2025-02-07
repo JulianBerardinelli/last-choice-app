@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { useScroll, useTransform } from 'framer-motion';
 import ArrowRightIcon from '../../components/svg-logos/ArrowrightIcon';
+import FooterComponent from '../../components/FooterComponent';
 
 export default function AboutUsPage() {
     const { scrollYProgress } = useScroll();
@@ -64,6 +65,9 @@ export default function AboutUsPage() {
                     </div>
                 </div>
             </motion.section>
+            <section className='mt-20'>
+                <FooterComponent/>
+            </section>
 
         </>
     );
