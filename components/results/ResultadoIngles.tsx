@@ -44,7 +44,12 @@ const ResultadoIngles = () => {
         </h5>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4 w-full mt-10">
-          <div className="md:col-span-3">
+        <div className="md:col-span-3">
+            <ScrollShadow hideScrollBar className="w-full h-[485px] ">
+              <ContentIngles />
+            </ScrollShadow>
+          </div>
+          <div className="md:col-span-2">
             <article>
               <h2 className="text-3xl md:text-4xl font-bold text-white/80 font-custom">Tu Ruta hacia el <span className='text-green-500 text-shadow-custom-glow-green'> Éxito Global</span></h2>
               <div className='grid grid-cols-1 md:grid-cols-2 gap-4 py-4'>
@@ -60,11 +65,7 @@ const ResultadoIngles = () => {
             </article>
           </div>
 
-          <div className="md:col-span-2">
-            <ScrollShadow hideScrollBar className="w-full h-[485px] ">
-              <ContentIngles />
-            </ScrollShadow>
-          </div>
+
         </div>
 
         <div>
