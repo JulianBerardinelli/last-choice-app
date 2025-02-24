@@ -18,7 +18,7 @@ module.exports = {
       textShadow: {
         'custom-glow-green': '0 0 1px rgba(0, 255, 0, 0.7), 0 0 10px rgba(0, 255, 0, 0.7), 0 0 40px rgba(0, 255, 0, 0.7)',
         'custom-glow-blue': '0 0 1px rgba(0, 0, 255, 0.7), 0 0 10px rgba(0, 0, 255, 0.7), 0 0 40px rgba(0, 0, 255, 0.7)',
-        'custom-glow-red': '0 0 5px rgba(255, 0, 0, 0.8), 0 0 10px rgba(255, 0, 0, 0.9), 0 0 20px rgba(255, 0, 0, 1), 0 0 30px rgba(255, 0, 0, 1), 0 0 40px rgba(255, 0, 0, 1)',
+        'custom-glow-red': '0 0 5px rgba(255, 0, 0, 0.8), 0 0 10px rgba(255, 0, 0, 0.9), 0 0 20px rgba(255, 0, 0, 1)',
       },
     },
   },

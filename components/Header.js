@@ -181,7 +181,7 @@ export default function Header() {
               </a>
             </li>
             <li>
-              <a href="/contact" className="hover:text-green-400 transition duration-300" onClick={toggleMenu}>
+              <a href="/menu" className="hover:text-green-400 transition duration-300" onClick={toggleMenu}>
                 ¿Qué hacer con mi dinero?
               </a>
             </li>
@@ -213,7 +213,7 @@ export default function Header() {
           </li>
           <li>
             <a
-              href="/contact"
+              href="/menu"
               className="text-white/80 font-medium hover:text-white transition duration-300 transform hover:scale-110"
             >
               ¿Qué hacer con mi dinero?

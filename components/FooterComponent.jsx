@@ -14,7 +14,7 @@ export default function FooterComponent() {
                         <a href="#" className="hover:text-white transition duration-300 transform hover:scale-110 me-4 md:me-6">¿Soy adicto?</a>
                     </li>
                     <li>
-                        <a href="#" className="hover:text-white transition duration-300 transform hover:scale-110 me-4 md:me-6">¿Qué hacer con mi dinero?</a>
+                        <a href="/menu" className="hover:text-white transition duration-300 transform hover:scale-110 me-4 md:me-6">¿Qué hacer con mi dinero?</a>
                     </li>
                     <li>
                         <a href="/about" className="hover:text-white transition duration-300 transform hover:scale-110">Nosotros</a>

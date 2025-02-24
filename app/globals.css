@@ -117,6 +117,9 @@ carrusel-slide {
   .custom-margin-about {
     margin-top: 40px; /* Ajuste para desktop */
   }
+  .custom-margin-midinero {
+    margin-top: 120px
+  }
 }
 
 /* Para pantallas medianas (tablets), entre 600px y 1023px */
@@ -124,12 +127,16 @@ carrusel-slide {
   .custom-margin-about {
     margin-top: 200px; /* Ajuste para tablets */
   }
+
 }
 
 /* Para pantallas pequeñas (móviles), máximo 599px */
 @media screen and (max-width: 768px) {
   .custom-margin-about {
     margin-top: 200px; /* Ajuste para móviles */
+  }
+  .custom-margin-midinero {
+    margin-top: 250px
   }
 
 }
